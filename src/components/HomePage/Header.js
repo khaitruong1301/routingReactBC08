@@ -19,6 +19,9 @@ export default function Header(props) {
                             <NavLink activeStyle={{background:'#fff',color:'#000'}} activeClassName="active" className="nav-link" to="/register">Register</NavLink>
                         </li>
                         <li className="nav-item">
+                            <NavLink activeStyle={{background:'#fff',color:'#000'}} activeClassName="active" className="nav-link" to="/hoc">HOC(Higher order component)</NavLink>
+                        </li>
+                        <li className="nav-item">
                             <NavLink activeStyle={{background:'#fff',color:'#000'}} activeClassName="active" className="nav-link" to="/login">Login</NavLink>
                         </li>
                         <li className="nav-item dropdown">
@@ -34,6 +37,7 @@ export default function Header(props) {
                             <div className="dropdown-menu" aria-labelledby="dropdownId">
                                 <NavLink className="dropdown-item" to="/ajaxrcc">Ajax react class</NavLink>
                                 <NavLink className="dropdown-item" to="/ajaxrfc">Ajax react function</NavLink>
+                                <NavLink className="dropdown-item" to="/apimiddleware">Api middle ware</NavLink>
                          
                             </div>
                         </li>
