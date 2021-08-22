@@ -1,8 +1,8 @@
 import React from 'react'
-
+import {useSelector} from 'react-redux'
 export default function Modal(props) {
-    
-    let Component = props.com;
+
+    const {Component,handleSubmit} =  useSelector(state => state.ModalReducer)
     return (
         <div>
             {/* Button trigger modal */}
@@ -24,7 +24,9 @@ export default function Modal(props) {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Save</button>
+                            <button type="button" className="btn btn-primary" onClick={()=>{
+                                handleSubmit()
+                            }}>Submit</button>
                         </div>
                     </div>
                 </div>
@@ -33,3 +35,5 @@ export default function Modal(props) {
 
     )
 }
+
+
