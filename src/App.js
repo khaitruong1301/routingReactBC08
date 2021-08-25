@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 //Cấu hình routing
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Router, Switch } from 'react-router-dom'
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
@@ -20,11 +20,14 @@ import { HomeTemplate } from './templates/HomeTemplate';
 import { UserTemplate } from './templates/UserTemplate';
 import AntDemo from './pages/AntDemo/AntDemo';
 import { AdminTemplate } from './templates/AdminTemplate';
+//Thư viện giúp chuyển hướng trang ở các file không phải là component
+import {createBrowserHistory} from 'history'
 
+export const history = createBrowserHistory();
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       {/* <Header /> */}
       <Switch>
         {/* <Route exact path="/home" render={(propsRoute) => {
@@ -39,6 +42,8 @@ function App() {
             <About {...propsRoute} />
           </div>
         }} /> */}
+        
+        {/* <Route component={Home} />  // props ( history,location, match) */}
         <HomeTemplate path="/home" component={Home} />
         <HomeTemplate path="/about" component={About} />
 
@@ -64,7 +69,7 @@ function App() {
       <HomeTemplate exact path="/" component={ApiMiddleWare} />
       </Switch>
 
-    </BrowserRouter>
+    </Router>
   );
 }
 

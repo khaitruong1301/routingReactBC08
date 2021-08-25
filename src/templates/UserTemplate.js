@@ -16,7 +16,7 @@ export const UserTemplate = (props) => {
                     <div className="w-50">
                         <img className="w-100 vh-100" src="https://picsum.photos/2000/2000" alt="..." />
                     </div>
-                    <div>
+                    <div className="w-50">
                         <props.component {...propsRoute} />
                     </div>
 

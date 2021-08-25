@@ -1,7 +1,19 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
+import {useSelector} from 'react-redux'
 export default function Header(props) {
+
+    const {userLogin} = useSelector(state=>state.QuanLyNguoiDungReducer);
+
+
+    const renderLogin = () => {
+        if(userLogin !== null){
+           return  <NavLink activeStyle={{background:'#fff',color:'#000'}} activeClassName="active" className="nav-link" to="/profile">Hello! {userLogin.taiKhoan}</NavLink>
+        }else {
+            return  <NavLink activeStyle={{background:'#fff',color:'#000'}} activeClassName="active" className="nav-link" to="/login">Login</NavLink>
+        }
+    }
+
     return (
         <div>
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -22,7 +34,7 @@ export default function Header(props) {
                             <NavLink activeStyle={{background:'#fff',color:'#000'}} activeClassName="active" className="nav-link" to="/hoc">HOC(Higher order component)</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink activeStyle={{background:'#fff',color:'#000'}} activeClassName="active" className="nav-link" to="/login">Login</NavLink>
+                           {renderLogin()}
                         </li>
                         <li className="nav-item">
                             <NavLink activeStyle={{background:'#fff',color:'#000'}} activeClassName="active" className="nav-link" to="/antd">Ant Design</NavLink>
