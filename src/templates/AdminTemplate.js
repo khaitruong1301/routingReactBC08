@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 //Fragment giống thẻ div mà không hiển thị chỉ dùng để bao bọc trang
-import { Route } from "react-router-dom"
+import { NavLink, Route } from "react-router-dom"
 
 import { Layout, Menu } from 'antd';
 import {
@@ -43,13 +43,17 @@ export const AdminTemplate = (props) => {
                      </div>
                     <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                         <Menu.Item key="1" icon={<UserOutlined />}>
-                            nav 1
+
+                            <NavLink to="/admin/films">
+                                Quản lý phim
+                            </NavLink>
+                          
                         </Menu.Item>
                         <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                            nav 2
+                            Quản lý người dùng
                         </Menu.Item>
                         <Menu.Item key="3" icon={<UploadOutlined />}>
-                            nav 3
+                            Quản lý lịch chiếu
                         </Menu.Item>
                     </Menu>
                 </Sider>
@@ -66,7 +70,7 @@ export const AdminTemplate = (props) => {
                         style={{
                             margin: '24px 16px',
                             padding: 24,
-                            minHeight: 280,
+                            minHeight: '100vh',
                         }}
                     >
                         <props.component {...propsRoute} />

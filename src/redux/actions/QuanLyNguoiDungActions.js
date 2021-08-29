@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { history } from '../../App';
-import { ACCESS_TOKEN, TOKEN_CYBERSOFT, USER_LOGIN } from '../../util/settings'
+import { ACCESS_TOKEN, http, TOKEN_CYBERSOFT, USER_LOGIN } from '../../util/settings'
 
 
 
@@ -52,15 +52,16 @@ export const dangKyAsyncAction = (thongTinNguoiDung, history) => {
     //async await dùng khi những api cần thực hiện tuần tự 
     return async (dispatch) => {
         try {
-            const result = await axios({
-                url: `http://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy`,
-                method: 'POST',
-                data: thongTinNguoiDung,
-                headers: {
-                    'TokenCybersoft': TOKEN_CYBERSOFT
-                }
-            });
-
+            // const result = await axios({
+            //     url: `http://movienew.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy`,
+            //     method: 'POST',
+            //     data: thongTinNguoiDung,
+            //     headers: {
+            //         'TokenCybersoft': TOKEN_CYBERSOFT
+            //     }
+            // });
+            const result = await http.post(`/api/QuanLyNguoiDung/DangKy`,thongTinNguoiDung)
+         
             alert('Đăng ký thành công !');
             history.push('/login');
 

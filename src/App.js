@@ -22,6 +22,9 @@ import AntDemo from './pages/AntDemo/AntDemo';
 import { AdminTemplate } from './templates/AdminTemplate';
 //Thư viện giúp chuyển hướng trang ở các file không phải là component
 import {createBrowserHistory} from 'history'
+import ApiMiddleWare_mobile from './pages/AxiosDemo/ApiMiddleWare_mobile';
+import Films from './pages/_Admin/Films/Films';
+import AddFilms from './pages/_Admin/AddFilms/AddFilms';
 
 export const history = createBrowserHistory();
 
@@ -61,12 +64,12 @@ function App() {
         <HomeTemplate exact path="/profile" component={Profile} />
         <HomeTemplate exact path="/hoc" component={HOC} />
 
-
-
         <AdminTemplate path='/admin/antd' component={AntDemo} />
+        <AdminTemplate path='/admin/films' component={Films} />
+        <AdminTemplate path='/admin/addfilms' component={AddFilms} />
 
 
-      <HomeTemplate exact path="/" component={ApiMiddleWare} />
+      <HomeTemplate exact path="/" component={ApiMiddleWare} mobileComponent={ApiMiddleWare_mobile} />
       </Switch>
 
     </Router>
